@@ -1,0 +1,41 @@
+body{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../images/3d_cubes-HD.jpg");
+    font-family: 'Roboto', sans-serif;
+}
+
+.container{
+    background-color: rgba(226, 226, 23, 0.883);
+    font-family: 'Roboto', sans-serif;
+}
+
+#question{
+    padding:20px;
+    font-size: 50px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#btn-start{
+    margin-bottom: 50px;
+    font-family: 'Roboto', sans-serif;
+}
+#answers{
+    margin:20px;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.list-group-item:hover {
+    /* color: rgba(226, 226, 23, 0.424); */
+    font-size: 20px;
+    font-weight: bolder;
+    cursor: pointer;
+    color: blue;
+}
+#count-down-timer{
+    margin:2px;
+    font-size: 35px;
+    font-family: 'Roboto', sans-serif;
+    color: blue;
+}
