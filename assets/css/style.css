@@ -36,6 +36,13 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
+p{
+    margin:20px;
+    font-size: 35px;
+    font-family: 'Roboto', sans-serif;
+    color: blue;
+}
+
 .list-group-item:hover {
     /* color: rgba(226, 226, 23, 0.424); */
     font-size: 20px;

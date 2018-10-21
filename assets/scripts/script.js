@@ -54,9 +54,10 @@ var data = [
 ]
 
     $("#begin").on("click", function () {
-        $(this).remove();
+        $('#begin').css("visibility","hidden");
         startGame();
     });
+
 
     $(document).on("click", "li", function () {
         if ($(this).html() === data[currentQuestionNumber].answer) {
@@ -93,12 +94,13 @@ var showWrongAnswer = function(){
     $("#answers").empty();
     createQuestions();
     $('#correct-answer').text("Sorry, Wrong Answer. Correct Answer is");
-    $("#correct-answer").append("<ul id='correct-answer-ul' class='list-group'></ul>");
-    $("#correct-answer-ul").append("<li class='list-group-item'>" + data[currentQuestionNumber].answer + "</li>");
+    $("#correct-answer").append("<p>" + data[currentQuestionNumber].answer + "</p>");
+    //$("#correct-answer-ul").append("<li class='list-group-item'>" + data[currentQuestionNumber].answer + "</li>");
 
 }
 
 var createAnswers = function(){
+    $('#count-down-timer').empty();
     $('#correct-answer').empty();
     $("#answers").append("<ul id='answer-ul' class='list-group'></ul>");
     for (var i = 0; i < data[currentQuestionNumber].choices.length; i++) {
@@ -111,9 +113,10 @@ var createAnswers = function(){
 var showAnswer = function(){
     $("#answers").empty();
     createQuestions();
-    $('#correct-answer').text("Correct Answer");
-    $("#correct-answer").append("<ul id='correct-answer-ul' class='list-group'></ul>");
-    $("#correct-answer-ul").append("<li class='list-group-item'>" + data[currentQuestionNumber].answer + "</li>");
+    $('#correct-answer').text(" Correct Answer ");
+    $("#correct-answer").append("<p>" + data[currentQuestionNumber].answer + "</p>");
+    // $("#correct-answer").append("<ul id='correct-answer-ul' class='list-group'></ul>");
+    // $("#correct-answer-ul").append("<li class='list-group-item'>" + data[currentQuestionNumber].answer + "</li>");
 
 }
 
@@ -136,6 +139,8 @@ function timerDone() {
         showAnswer();
         setTimeout(results, 5000);
     } else {
+        $('#count-down-timer').empty();
+        $('#count-down-timer').text("Times Up");
         console.log('insdie else');
         clearInterval(intervalId);
         showAnswer();
@@ -145,15 +150,29 @@ function timerDone() {
 }
 
 var results = function(){
+    clear();
     console.log(wrongAnswer);
     console.log(correctAnswer);
     console.log(missedAnswers);
-    clearInterval(intervalId);
+    $('#correct-answer').empty();
+    $('#correct-answer').append("<p>Total Correct Answers :" + correctAnswer + "</p>");
+    $('#correct-answer').append("<p>Total Wrong Answers :" + wrongAnswer + "</p>");
+    $('#correct-answer').append("<p>Total Missed Answers :"+  missedAnswers + "</p>");
+
+    currentQuestionNumber = 0;
+    wrongAnswer = 0;
+    missedAnswers = 0;
+    correctAnswer = 0;
+
+    $('#begin').text('Start Again');
+    $('#begin').css("visibility","visible");
+
 }
 
 var clear = function(){
     $('#question').empty();
     $("#answers").empty();
+    $('#count-down-timer').empty();
 }
 
 });
