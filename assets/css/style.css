@@ -16,6 +16,16 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
+#correct-answer{
+    padding:10px;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#correct-answer .list-group-item{
+    color:blue;
+}
+
 #btn-start{
     margin-bottom: 50px;
     font-family: 'Roboto', sans-serif;
