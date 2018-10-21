@@ -2,7 +2,7 @@ console.log('connected!!');
 
 $(document).ready(function () {
 
-var counterStart = 6;
+var counterStart = 11;
 var timeLeft;
 
 var currentQuestionNumber = 0;
